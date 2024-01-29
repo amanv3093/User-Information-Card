@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Information-Card</title>
+</head>
+<body>
+    <section>
+        <div id="box">
+            <div>
+                <span>First Name:</span>
+                <span id="firstname"></span>
+            </div>
+            <div>
+                <span>Last Name:</span>
+                <span id="lastname"></span>
+            </div>
+            <div>
+                <span>Country:</span>
+                <span id="country"></span>
+            </div>
+            <div>
+                <span>Phone Number:</span>
+                <span id="phoneno"></span>
+            </div>
+            <div>
+                <span>State:</span>
+                <span id="state"></span>
+            </div>
+            <div>
+                <span>City:</span>
+                <span id="city"></span>
+            </div>
+            <div>
+                <span>Village:</span>
+                <span id="village"></span>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        let first_name=document.getElementById("firstname");
+        let last_name=document.getElementById("lastname");
+        let Country=document.getElementById("country");
+        let Phoneno=document.getElementById("phoneno");
+        let State=document.getElementById("state");
+        let City=document.getElementById("city");
+        let Village=document.getElementById("village");
+        const storedUserInfo = localStorage.getItem("userInformation");
+if (storedUserInfo) {
+   
+         first_name.innerText=storedUserInfo.firstName;
+         
+         console.log("first name",storedUserInfo.firstName)
+        
+        
+
+}else{
+    addDetails()
+}
+        
+
+        function addDetails(){
+         const firstName = prompt("Enter your first name:");
+         const lastName = prompt("Enter your last name:");
+         const country = prompt("Enter your country:");
+         const phoneNumber = prompt("Enter your phone number:");
+         const state = prompt("Enter your state:");
+         const city = prompt("Enter your city:");
+         const village = prompt("Enter your village:");
+         const store = {
+           " firstName":firstName,
+           "lastName":lastName,
+           "country":country,
+           "phoneNumber":phoneNumber,
+           "state":state,
+           "city":city,
+           "village":village,};
+           localStorage.setItem("userInformation", JSON.stringify(store));
+     
+        
+         
+         first_name.innerText=firstName;
+
+     
+        last_name.innerText=lastName;
+
+        
+        Country.innerText=country;
+
+       
+        Phoneno.innerText=phoneNumber;
+
+      
+        State.innerText=state;
+
+       
+        City.innerText=city;
+
+      
+        Village.innerText=village;
+
+       
+
+        }
+        
+    
+       
+
+
+
+    </script>
+    
+</body>
+</html>
